@@ -21,10 +21,20 @@
       }
     }
 
+    /* Light column padding so neither column hugs the page edges */
+    .col-pad { padding-inline: 0.75rem; }
+    @media (min-width: 1024px) { .col-pad { padding-inline: 1.25rem; } }
+
     /* Left “On this page” menu: sticky at top, no background */
     .toc-wrap { position: sticky; top: 0; }
     .toc { background: transparent; border: none; padding: 0; }
-    .toc h2 { font-size: .85rem; font-weight: 600; color: #374151; margin-bottom: .5rem; }
+    .toc h2 {
+      font-size: 1.125rem; /* bigger */
+      font-weight: 800;     /* bold */
+      color: #111827;
+      margin-bottom: .5rem;
+      letter-spacing: -0.01em;
+    }
     .toc a {
       display: block;
       font-size: .95rem;
@@ -92,10 +102,10 @@
   <main class="py-10 px-6 sm:px-10 lg:px-20 max-w-[1400px] mx-auto">
     <div class="grid gap-8 two-col-lg">
       <!-- Left: TOC (sticky, background-free) -->
-      <aside class="hidden lg:block toc-wrap">
+      <aside class="hidden lg:block toc-wrap col-pad">
         <nav class="toc" aria-label="On this page">
           <h2>On this page</h2>
-          <a href="#intro">Introduction</a>
+          <a href="#intro">1. Introduction</a>
           <a href="#sec2">2. Eligibility</a>
           <a href="#sec3">3. Account & Security</a>
           <a href="#sec4">4. Conduct & Content</a>
@@ -117,12 +127,12 @@
       </aside>
 
       <!-- Right: your content (no cards; simple separators) -->
-      <article class="space-y-6 legal">
+      <article class="space-y-6 legal col-pad">
         <!-- Intro -->
         <section id="intro" class="section anchor">
-          <h2>Terms of Service</h2>
+          <h2>1. Introduction</h2>
           <p><strong>Last Updated:</strong> January 17, 2025</p>
-          <h3>1. Acceptance of Terms</h3>
+          <h3>1.1 Acceptance of Terms</h3>
           <p>Welcome to NOC ("we," "us," "our," or "the App"). By downloading, accessing, or using the NOC mobile application, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.</p>
           <p>These Terms constitute a legally binding agreement between you and NOC. We reserve the right to update or modify these Terms at any time without prior notice. Your continued use of the App after any changes constitutes acceptance of the revised Terms.</p>
         </section>
