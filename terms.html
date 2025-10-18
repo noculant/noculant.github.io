@@ -7,7 +7,7 @@
   <meta name="description" content="Noculant Terms of Service"/>
   <link href="/src/output.css" rel="stylesheet"/>
   <link href="/src/nclt.css" rel="stylesheet"/>
-  <!-- Smooth scroll + scoped legal styles -->
+
   <style>
     html { scroll-behavior: smooth; }
 
@@ -21,45 +21,46 @@
       }
     }
 
-    /* --- Legal content typography (scoped) --- */
+    /* Left “On this page” menu: sticky at top, no background */
+    .toc-wrap { position: sticky; top: 0; }
+    .toc { background: transparent; border: none; padding: 0; }
+    .toc h2 { font-size: .85rem; font-weight: 600; color: #374151; margin-bottom: .5rem; }
+    .toc a {
+      display: block;
+      font-size: .95rem;
+      padding: .25rem 0;
+      line-height: 1.4;
+      color: #334155;
+      text-decoration: none;
+    }
+    .toc a:hover { text-decoration: underline; color: #1d4ed8; }
+    .toc a.active { font-weight: 700; color: #1d4ed8; }
+
+    /* Legal content typography (scoped) */
     .legal { line-height: 1.7; color: #111827; }
-    .legal h1, .legal h2, .legal h3, .legal h4 { font-weight: 800; line-height: 1.2; color: #0f172a; margin: 1.25em 0 0.5em; }
+    .legal h1, .legal h2, .legal h3, .legal h4 {
+      font-weight: 800; line-height: 1.2; color: #0f172a; margin: 1.25em 0 .5em;
+    }
     .legal h1 { font-size: clamp(2rem, 3.5vw, 2.25rem); letter-spacing: -0.01em; }
     .legal h2 { font-size: clamp(1.5rem, 2.8vw, 1.875rem); }
     .legal h3 { font-size: clamp(1.125rem, 2.2vw, 1.25rem); }
     .legal h4 { font-size: 1.05rem; font-weight: 700; }
-    .legal p { margin: 0.8em 0; }
+    .legal p { margin: .8em 0; }
     .legal strong { font-weight: 700; color: #0f172a; }
 
-    /* lists */
-    .legal ul, .legal ol { margin: 0.75em 0 1em 0; padding-left: 1.5rem; }
+    /* Lists */
+    .legal ul, .legal ol { margin: .75em 0 1em; padding-left: 1.5rem; }
     .legal ul { list-style: disc; }
     .legal ol { list-style: decimal; }
-    .legal li { margin: 0.25em 0; }
-    .legal li ul, .legal li ol { margin-top: 0.35em; }
+    .legal li { margin: .25em 0; }
+    .legal li ul, .legal li ol { margin-top: .35em; }
 
-    /* tables */
-    .legal table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 1em 0; }
-    .legal th, .legal td { border: 1px solid #e5e7eb; padding: 0.6em 0.75em; text-align: left; }
-    .legal thead th { background: #f8fafc; font-weight: 700; }
-    .legal tbody tr:nth-child(even) { background: #f9fafb; }
+    /* Simple section separators (no card UI) */
+    .section { padding-top: 1.25rem; padding-bottom: 1.25rem; border-top: 1px solid #e5e7eb; }
+    .section:first-of-type { border-top: 0; }
 
-    /* callouts / details */
-    .legal details { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 0.75rem 1rem; }
-    .legal summary { cursor: pointer; font-weight: 600; }
-
-    /* section cards */
-    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; box-shadow: 0 1px 2px rgba(16,24,40,.04); padding: 1.25rem; }
-    @media (min-width: 640px){ .card{ padding: 2rem; } }
-
-    /* Anchor offset so headings aren't hidden under header */
+    /* Ensure headings aren't hidden under header on jump */
     .anchor { scroll-margin-top: 110px; }
-
-    /* Side TOC styles */
-    .toc { position: sticky; top: 1.5rem; background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1rem; }
-    .toc a { display: block; font-size: 0.9rem; padding: 0.35rem 0.5rem; border-radius: 0.5rem; line-height: 1.4; color: #334155; }
-    .toc a:hover { color: #1d4ed8; }
-    .toc a.active { background: #e8edff; color: #1d4ed8; font-weight: 600; }
   </style>
 </head>
 <body class="bg-white text-gray-900">
@@ -90,10 +91,10 @@
   <!-- Content -->
   <main class="py-10 px-6 sm:px-10 lg:px-20 max-w-[1400px] mx-auto">
     <div class="grid gap-8 two-col-lg">
-      <!-- TOC -->
-      <aside class="hidden lg:block">
+      <!-- Left: TOC (sticky, background-free) -->
+      <aside class="hidden lg:block toc-wrap">
         <nav class="toc" aria-label="On this page">
-          <h2 class="text-sm font-semibold text-gray-700 mb-3">On this page</h2>
+          <h2>On this page</h2>
           <a href="#intro">Introduction</a>
           <a href="#sec2">2. Eligibility</a>
           <a href="#sec3">3. Account & Security</a>
@@ -115,10 +116,10 @@
         </nav>
       </aside>
 
-      <!-- Article -->
+      <!-- Right: your content (no cards; simple separators) -->
       <article class="space-y-6 legal">
         <!-- Intro -->
-        <section id="intro" class="card anchor">
+        <section id="intro" class="section anchor">
           <h2>Terms of Service</h2>
           <p><strong>Last Updated:</strong> January 17, 2025</p>
           <h3>1. Acceptance of Terms</h3>
@@ -127,7 +128,7 @@
         </section>
 
         <!-- 2 -->
-        <section id="sec2" class="card anchor">
+        <section id="sec2" class="section anchor">
           <h2>2. Eligibility</h2>
           <h3>2.1 Age Requirement</h3>
           <p>You must be at least 13 years of age to use the App. If you are between 13 and 18 years of age (or the age of legal majority in your jurisdiction), you may only use the App under the supervision of a parent or legal guardian who agrees to be bound by these Terms.</p>
@@ -138,7 +139,7 @@
         </section>
 
         <!-- 3 -->
-        <section id="sec3" class="card anchor">
+        <section id="sec3" class="section anchor">
           <h2>3. Account Registration and Security</h2>
           <h3>3.1 Account Creation</h3>
           <ul>
@@ -158,7 +159,7 @@
         </section>
 
         <!-- 4 -->
-        <section id="sec4" class="card anchor">
+        <section id="sec4" class="section anchor">
           <h2>4. User Conduct and Content</h2>
           <h3>4.1 Acceptable Use</h3>
           <p>You agree to use the App only for lawful purposes and in accordance with these Terms. You agree NOT to:</p>
@@ -203,7 +204,7 @@
         </section>
 
         <!-- 5 -->
-        <section id="sec5" class="card anchor">
+        <section id="sec5" class="section anchor">
           <h2>5. Content Moderation and Reporting</h2>
           <h3>5.1 Reporting Violations</h3>
           <p>We provide tools for users to report inappropriate content. You can:</p>
@@ -225,7 +226,7 @@
         </section>
 
         <!-- 6 -->
-        <section id="sec6" class="card anchor">
+        <section id="sec6" class="section anchor">
           <h2>6. Club and Event Features</h2>
           <h3>6.1 Club Leadership</h3>
           <ul>
@@ -250,7 +251,7 @@
         </section>
 
         <!-- 7 -->
-        <section id="sec7" class="card anchor">
+        <section id="sec7" class="section anchor">
           <h2>7. Notifications</h2>
           <h3>7.1 Push Notifications</h3>
           <p>By using the App, you consent to receive push notifications regarding:</p>
@@ -270,7 +271,7 @@
         </section>
 
         <!-- 8 -->
-        <section id="sec8" class="card anchor">
+        <section id="sec8" class="section anchor">
           <h2>8. Privacy and Data Collection</h2>
           <h3>8.1 Data Collection</h3>
           <p>Our collection, use, and sharing of your personal information is described in our Privacy Policy, which is incorporated into these Terms by reference.</p>
@@ -286,7 +287,7 @@
         </section>
 
         <!-- 9 -->
-        <section id="sec9" class="card anchor">
+        <section id="sec9" class="section anchor">
           <h2>9. Intellectual Property Rights</h2>
           <h3>9.1 App Ownership</h3>
           <p>The App, including all content, features, functionality, software, and design, is owned by NOC and is protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.</p>
@@ -305,7 +306,7 @@
         </section>
 
         <!-- 10 -->
-        <section id="sec10" class="card anchor">
+        <section id="sec10" class="section anchor">
           <h2>10. Third-Party Services</h2>
           <h3>10.1 Firebase Services</h3>
           <p>The App uses Firebase Cloud Messaging for push notifications. Your use of Firebase services is subject to Google's Terms of Service and Privacy Policy.</p>
@@ -318,7 +319,7 @@
         </section>
 
         <!-- 11 -->
-        <section id="sec11" class="card anchor">
+        <section id="sec11" class="section anchor">
           <h2>11. Disclaimer of Warranties</h2>
           <p>THE APP IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, including but not limited to:</p>
           <ul>
@@ -337,7 +338,7 @@
         </section>
 
         <!-- 12 -->
-        <section id="sec12" class="card anchor">
+        <section id="sec12" class="section anchor">
           <h2>12. Limitation of Liability</h2>
           <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, NOC SHALL NOT BE LIABLE FOR:</p>
           <h3>12.1 Indirect Damages</h3>
@@ -355,7 +356,7 @@
         </section>
 
         <!-- 13 -->
-        <section id="sec13" class="card anchor">
+        <section id="sec13" class="section anchor">
           <h2>13. Indemnification</h2>
           <p>You agree to defend, indemnify, and hold harmless NOC, its officers, directors, employees, agents, licensors, and suppliers from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to:</p>
           <ul>
@@ -369,7 +370,7 @@
         </section>
 
         <!-- 14 -->
-        <section id="sec14" class="card anchor">
+        <section id="sec14" class="section anchor">
           <h2>14. Account Termination</h2>
           <h3>14.1 Termination by You</h3>
           <ul>
@@ -394,13 +395,13 @@
         </section>
 
         <!-- 15 -->
-        <section id="sec15" class="card anchor">
+        <section id="sec15" class="section anchor">
           <h2>15. Geographic Restrictions</h2>
           <p>The App is controlled and operated from our facilities. We make no representations that the App is appropriate or available for use in all locations. Access to the App from territories where its contents are illegal or restricted is prohibited.</p>
         </section>
 
         <!-- 16 -->
-        <section class="card anchor">
+        <section class="section anchor">
           <h2>16. Governing Law and Dispute Resolution</h2>
           <h3>16.1 Governing Law</h3>
           <p>These Terms shall be governed by and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law provisions.</p>
@@ -417,7 +418,7 @@
         </section>
 
         <!-- 17–18 -->
-        <section id="sec17" class="card anchor">
+        <section id="sec17" class="section anchor">
           <h2>17. Apple App Store Terms (iOS Users) & 18. Google Play Terms</h2>
           <h3>17.1 Acknowledgment</h3>
           <ul>
@@ -445,7 +446,7 @@
         </section>
 
         <!-- 19 -->
-        <section id="sec19" class="card anchor">
+        <section id="sec19" class="section anchor">
           <h2>19. Device Permissions</h2>
           <h3>19.1 Required Permissions</h3>
           <ul>
@@ -461,7 +462,7 @@
         </section>
 
         <!-- 20–25 -->
-        <section id="sec20" class="card anchor">
+        <section id="sec20" class="section anchor">
           <h2>20. Updates and Modifications; 21–25. Miscellaneous</h2>
           <h3>20.1 App Updates</h3>
           <p>We may release updates to the App from time to time. Updates may include new features, bug fixes, or security enhancements. You are responsible for updating the App to continue using it.</p>
@@ -485,7 +486,7 @@
         </section>
 
         <!-- 26–30 -->
-        <section id="sec26" class="card anchor">
+        <section id="sec26" class="section anchor">
           <h2>26. Contact Information; 27–30. Notices</h2>
           <p>If you have any questions, concerns, or complaints regarding these Terms or the App, please contact us:</p>
           <p>Email: [Your Contact Email] &nbsp;&nbsp; Address: [Your Company Address] &nbsp;&nbsp; Support: Available through in-app support</p>
@@ -541,7 +542,6 @@
 
   <!-- Active link + header offset JS -->
   <script>
-    // Highlight active section
     (function() {
       const links = Array.from(document.querySelectorAll('.toc a'));
       const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
@@ -562,14 +562,13 @@
 
       sections.forEach(sec => obs.observe(sec));
 
-      // Adjust for fixed header when clicking menu links
       links.forEach(link => {
         link.addEventListener('click', (e) => {
           const id = link.getAttribute('href').slice(1);
           const target = document.getElementById(id);
           if (!target) return;
           e.preventDefault();
-          const y = target.getBoundingClientRect().top + window.pageYOffset - 100; // header offset
+          const y = target.getBoundingClientRect().top + window.pageYOffset - 100;
           window.scrollTo({ top: y, behavior: 'smooth' });
           links.forEach(l => { l.classList.remove('active'); l.removeAttribute('aria-current'); });
           link.classList.add('active');
