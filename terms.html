@@ -11,7 +11,7 @@
   <style>
     html { scroll-behavior: smooth; }
 
-    /* Layout */
+    /* --- Layout grid (desktop) --- */
     @media (min-width: 1024px) {
       .two-col-lg {
         display: grid;
@@ -21,16 +21,16 @@
       }
     }
 
-    /* Wider breathing room on both sides */
-    .page-wrap { padding-inline: clamp(1rem, 5vw, 3rem); }            /* outer */
-    .col-pad   { padding-inline: clamp(1rem, 4vw, 3rem); }            /* inner columns */
+    /* --- Global page padding + inner column padding --- */
+    .page-wrap { padding-inline: clamp(1rem, 5vw, 3rem); }
+    .col-pad   { padding-inline: clamp(1rem, 4vw, 3rem); }
 
-    /* Left menu: sticky top, no background */
-    .toc-wrap { position: sticky; top: 0; }
+    /* --- Left TOC behavior --- */
+    .toc-wrap { position: sticky; top: 0; } /* sticks under header on desktop */
     .toc { background: transparent; border: none; padding: 0; }
     .toc h2 {
-      font-size: 1.25rem;             /* bigger */
-      font-weight: 800;               /* bold */
+      font-size: 1.25rem;
+      font-weight: 800;
       color: #111827;
       margin: 0 0 .5rem 0;
       letter-spacing: -0.01em;
@@ -44,9 +44,18 @@
       text-decoration: none;
     }
     .toc a:hover { text-decoration: underline; }
-    .toc a.active { font-weight: 800; color: inherit; } /* bold only, no blue */
+    .toc a.active { font-weight: 800; color: inherit; } /* bold only */
 
-    /* Legal content typography (scoped) */
+    /* --- Mobile behavior for the TOC --- */
+    @media (max-width: 1023px){
+      .toc-aside{ display: none !important; }      /* hide left TOC on mobile */
+      .toc-mobile{ display: block !important; }    /* show dropdown TOC on mobile */
+    }
+    @media (min-width: 1024px){
+      .toc-mobile{ display: none !important; }     /* desktop keeps side TOC */
+    }
+
+    /* --- Legal content typography --- */
     .legal { line-height: 1.7; color: #111827; }
     .legal h1, .legal h2, .legal h3, .legal h4 {
       font-weight: 800; line-height: 1.2; color: #0f172a; margin: 1.25em 0 .5em;
@@ -65,11 +74,17 @@
     .legal li { margin: .25em 0; }
     .legal li ul, .legal li ol { margin-top: .35em; }
 
-    /* Simple section separators */
+    /* Tables (if any) */
+    .legal table { width: 100%; border-collapse: collapse; font-size: .95rem; margin: 1em 0; }
+    .legal th, .legal td { border: 1px solid #e5e7eb; padding: .6em .75em; text-align: left; }
+    .legal thead th { background: #f8fafc; font-weight: 700; }
+    .legal tbody tr:nth-child(even) { background: #f9fafb; }
+
+    /* Section dividers (no cards) */
     .section { padding-top: 1.25rem; padding-bottom: 1.25rem; border-top: 1px solid #e5e7eb; }
     .section:first-of-type { border-top: 0; }
 
-    /* Ensure headings aren't hidden under header on anchor jump */
+    /* Anchor offset so headings aren't hidden by header on jump */
     .anchor { scroll-margin-top: 110px; }
   </style>
 </head>
@@ -101,8 +116,8 @@
   <!-- Content -->
   <main class="py-10 page-wrap max-w-[1400px] mx-auto">
     <div class="grid gap-10 two-col-lg">
-      <!-- Left: TOC (sticky, background-free) -->
-      <aside class="hidden lg:block toc-wrap col-pad">
+      <!-- Left: Desktop TOC (sticky) -->
+      <aside class="hidden lg:block toc-wrap col-pad toc-aside">
         <nav class="toc" aria-label="On this page">
           <h2>On this page</h2>
           <a href="#intro">1. Introduction</a>
@@ -126,12 +141,42 @@
         </nav>
       </aside>
 
-      <!-- Right: content (no cards; simple separators) -->
+      <!-- Mobile TOC (dropdown) -->
+      <div class="toc-mobile col-pad" style="display:none;">
+        <details class="border-b border-gray-200 py-3">
+          <summary class="text-base font-extrabold text-gray-900 cursor-pointer">
+            On this page
+          </summary>
+          <nav class="mt-2 space-y-1">
+            <a href="#intro" class="block text-sm py-1">1. Introduction</a>
+            <a href="#sec2" class="block text-sm py-1">2. Eligibility</a>
+            <a href="#sec3" class="block text-sm py-1">3. Account &amp; Security</a>
+            <a href="#sec4" class="block text-sm py-1">4. Conduct &amp; Content</a>
+            <a href="#sec5" class="block text-sm py-1">5. Moderation</a>
+            <a href="#sec6" class="block text-sm py-1">6. Clubs &amp; Events</a>
+            <a href="#sec7" class="block text-sm py-1">7. Notifications</a>
+            <a href="#sec8" class="block text-sm py-1">8. Privacy &amp; Data</a>
+            <a href="#sec9" class="block text-sm py-1">9. IP Rights</a>
+            <a href="#sec10" class="block text-sm py-1">10. Third-Party</a>
+            <a href="#sec11" class="block text-sm py-1">11–12. Warranty &amp; Liability</a>
+            <a href="#sec13" class="block text-sm py-1">13. Indemnification</a>
+            <a href="#sec14" class="block text-sm py-1">14. Termination</a>
+            <a href="#sec15" class="block text-sm py-1">15–16. Law &amp; Disputes</a>
+            <a href="#sec17" class="block text-sm py-1">17–18. App Stores</a>
+            <a href="#sec19" class="block text-sm py-1">19. Permissions</a>
+            <a href="#sec20" class="block text-sm py-1">20–25. Misc</a>
+            <a href="#sec26" class="block text-sm py-1">26–30. Contact &amp; Notices</a>
+          </nav>
+        </details>
+      </div>
+
+      <!-- Right: Article -->
       <article class="space-y-6 legal col-pad">
+        <!-- Intro -->
         <section id="intro" class="section anchor">
           <h2>1. Introduction</h2>
           <p><strong>Last Updated:</strong> January 17, 2025</p>
-          <h3>1.1 Acceptance of Terms</h3>
+          <h3>Acceptance of Terms</h3>
           <p>Welcome to NOC ("we," "us," "our," or "the App"). By downloading, accessing, or using the NOC mobile application, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.</p>
           <p>These Terms constitute a legally binding agreement between you and NOC. We reserve the right to update or modify these Terms at any time without prior notice. Your continued use of the App after any changes constitutes acceptance of the revised Terms.</p>
         </section>
@@ -347,7 +392,7 @@
         </section>
 
         <!-- 12 -->
-        <section id="sec12" class="section anchor">
+        <section class="section anchor">
           <h2>12. Limitation of Liability</h2>
           <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, NOC SHALL NOT BE LIABLE FOR:</p>
           <h3>12.1 Indirect Damages</h3>
@@ -552,23 +597,29 @@
   <!-- Active link + alignment JS -->
   <script>
     (function() {
-      const links = Array.from(document.querySelectorAll('.toc a'));
+      // Collect both desktop and mobile TOC links
+      const desktopLinks = Array.from(document.querySelectorAll('.toc a'));
+      const mobileLinks  = Array.from(document.querySelectorAll('.toc-mobile nav a'));
+      const links = [...desktopLinks, ...mobileLinks];
+
       const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
       const sections = Array.from(document.querySelectorAll('.anchor'));
       const toc = document.querySelector('.toc');
       const article = document.querySelector('article');
       const firstH2 = document.querySelector('#intro h2');
 
-      // Bold the active item as you scroll
+      // Highlight active section in both menus
       const obs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           const id = entry.target.id;
           const link = map.get(id);
           if (!link) return;
           if (entry.isIntersecting) {
+            // Clear all actives then set
             links.forEach(l => { l.classList.remove('active'); l.removeAttribute('aria-current'); });
-            link.classList.add('active');
-            link.setAttribute('aria-current', 'true');
+            // Set for every link with same href (desktop+mobile)
+            const sameHref = links.filter(l => l.getAttribute('href').slice(1) === id);
+            sameHref.forEach(l => { l.classList.add('active'); l.setAttribute('aria-current', 'true'); });
           }
         });
       }, { rootMargin: '0px 0px -60% 0px', threshold: 0.1 });
@@ -585,18 +636,23 @@
           const y = target.getBoundingClientRect().top + window.pageYOffset - 100;
           window.scrollTo({ top: y, behavior: 'smooth' });
           links.forEach(l => { l.classList.remove('active'); l.removeAttribute('aria-current'); });
-          link.classList.add('active');
-          link.setAttribute('aria-current', 'true');
+          const sameHref = links.filter(l => l.getAttribute('href').slice(1) === id);
+          sameHref.forEach(l => { l.classList.add('active'); l.setAttribute('aria-current', 'true'); });
         });
       });
 
-      // Align "On this page" title with "1. Introduction" when at top:
+      // Align desktop "On this page" title with "1. Introduction" when at top
       function alignTocToIntro() {
         if (!toc || !article || !firstH2) return;
-        const articleTop = article.getBoundingClientRect().top + window.pageYOffset;
-        const introTop   = firstH2.getBoundingClientRect().top + window.pageYOffset;
-        const padTop = Math.max(0, introTop - articleTop);
-        toc.style.paddingTop = padTop + 'px';
+        // Only for desktop widths
+        if (window.matchMedia('(min-width: 1024px)').matches) {
+          const articleTop = article.getBoundingClientRect().top + window.pageYOffset;
+          const introTop   = firstH2.getBoundingClientRect().top + window.pageYOffset;
+          const padTop = Math.max(0, introTop - articleTop);
+          toc.style.paddingTop = padTop + 'px';
+        } else {
+          toc.style.paddingTop = ''; // reset on mobile
+        }
       }
       alignTocToIntro();
       window.addEventListener('resize', alignTocToIntro);
