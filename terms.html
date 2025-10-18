@@ -7,6 +7,35 @@
   <meta name="description" content="Noculant Terms of Service"/>
   <link href="/src/output.css" rel="stylesheet"/>
   <link href="/src/nclt.css" rel="stylesheet"/>
+  <!-- Scoped fixes so headings, lists, and tables look right even with resets -->
+  <style>
+    /* --- Legal content typography (scoped) --- */
+    .legal { line-height: 1.7; color: #111827; }
+    .legal h1, .legal h2, .legal h3, .legal h4 { font-weight: 800; line-height: 1.2; color: #0f172a; margin: 1.25em 0 0.5em; }
+    .legal h1 { font-size: clamp(2rem, 3.5vw, 2.25rem); letter-spacing: -0.01em; }
+    .legal h2 { font-size: clamp(1.5rem, 2.8vw, 1.875rem); }
+    .legal h3 { font-size: clamp(1.125rem, 2.2vw, 1.25rem); }
+    .legal h4 { font-size: 1.05rem; font-weight: 700; }
+    .legal p { margin: 0.8em 0; }
+    .legal strong { font-weight: 700; color: #0f172a; }
+    /* lists */
+    .legal ul, .legal ol { margin: 0.75em 0 1em 0; padding-left: 1.5rem; }
+    .legal ul { list-style: disc; }
+    .legal ol { list-style: decimal; }
+    .legal li { margin: 0.25em 0; }
+    .legal li ul, .legal li ol { margin-top: 0.35em; }
+    /* tables */
+    .legal table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 1em 0; }
+    .legal th, .legal td { border: 1px solid #e5e7eb; padding: 0.6em 0.75em; text-align: left; }
+    .legal thead th { background: #f8fafc; font-weight: 700; }
+    .legal tbody tr:nth-child(even) { background: #f9fafb; }
+    /* callouts / details */
+    .legal details { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 0.75rem 1rem; }
+    .legal summary { cursor: pointer; font-weight: 600; }
+    /* section cards */
+    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; box-shadow: 0 1px 2px rgba(16,24,40,.04); padding: 1.25rem; }
+    @media (min-width: 640px){ .card{ padding: 2rem; } }
+  </style>
 </head>
 <body class="bg-white text-gray-900">
   <!-- Header -->
@@ -24,413 +53,490 @@
 
   <!-- Hero -->
   <section class="w-full bg-gray-950 text-white bg-cover bg-center py-12 px-8 sm:px-40" style="background-image:url(/assets/bg_dark.png)">
-    <h1 class="text-4xl sm:text-6xl font-extrabold">Terms of Service</h1>
-    <p class="mt-3 text-sm opacity-80">Last Updated: <span>January 17, 2025</span></p>
+    <div class="flex items-end justify-between">
+      <div>
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight">Terms of Service</h1>
+        <p class="mt-3 text-sm opacity-80">Last Updated: <span>January 17, 2025</span></p>
+      </div>
+      <span class="hidden sm:inline-block text-xs bg-blue-500/90 text-white px-3 py-1 rounded-lg">Noculant Inc.</span>
+    </div>
   </section>
 
   <!-- Content -->
-  <main class="py-12 px-8 sm:px-40 max-w-5xl">
-    <article class="prose max-w-none">
-      <h2>Terms of Service</h2>
-      <p><strong>Last Updated: January 17, 2025</strong></p>
+  <main class="py-10 px-6 sm:px-10 lg:px-20 max-w-[1400px] mx-auto">
+    <div class="grid lg:grid-cols-[260px,1fr] gap-8">
+      <!-- TOC -->
+      <aside class="hidden lg:block">
+        <div class="sticky top-6 bg-gray-50 border border-gray-200 rounded-2xl p-4">
+          <h2 class="text-sm font-semibold text-gray-700 mb-3">On this page</h2>
+          <nav class="text-sm space-y-2">
+            <a href="#intro" class="block hover:text-blue-600">Introduction</a>
+            <a href="#sec2" class="block hover:text-blue-600">2. Eligibility</a>
+            <a href="#sec3" class="block hover:text-blue-600">3. Account & Security</a>
+            <a href="#sec4" class="block hover:text-blue-600">4. Conduct & Content</a>
+            <a href="#sec5" class="block hover:text-blue-600">5. Moderation</a>
+            <a href="#sec6" class="block hover:text-blue-600">6. Clubs & Events</a>
+            <a href="#sec7" class="block hover:text-blue-600">7. Notifications</a>
+            <a href="#sec8" class="block hover:text-blue-600">8. Privacy & Data</a>
+            <a href="#sec9" class="block hover:text-blue-600">9. IP Rights</a>
+            <a href="#sec10" class="block hover:text-blue-600">10. Third-Party</a>
+            <a href="#sec11" class="block hover:text-blue-600">11–12. Warranty & Liability</a>
+            <a href="#sec13" class="block hover:text-blue-600">13. Indemnification</a>
+            <a href="#sec14" class="block hover:text-blue-600">14. Termination</a>
+            <a href="#sec15" class="block hover:text-blue-600">15–16. Law & Disputes</a>
+            <a href="#sec17" class="block hover:text-blue-600">17–18. App Stores</a>
+            <a href="#sec19" class="block hover:text-blue-600">19. Permissions</a>
+            <a href="#sec20" class="block hover:text-blue-600">20–25. Misc</a>
+            <a href="#sec26" class="block hover:text-blue-600">26–30. Contact & Notices</a>
+            <a href="#toc" class="block hover:text-blue-600">Table of Contents (source)</a>
+          </nav>
+        </div>
+      </aside>
 
-      <h3>1. Acceptance of Terms</h3>
-      <p>Welcome to NOC ("we," "us," "our," or "the App"). By downloading, accessing, or using the NOC mobile application, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.</p>
-      <p>These Terms constitute a legally binding agreement between you and NOC. We reserve the right to update or modify these Terms at any time without prior notice. Your continued use of the App after any changes constitutes acceptance of the revised Terms.</p>
+      <!-- Article -->
+      <article class="space-y-6 legal">
+        <!-- Intro -->
+        <section id="intro" class="card">
+          <h2>Terms of Service</h2>
+          <p><strong>Last Updated:</strong> January 17, 2025</p>
+          <h3>1. Acceptance of Terms</h3>
+          <p>Welcome to NOC ("we," "us," "our," or "the App"). By downloading, accessing, or using the NOC mobile application, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.</p>
+          <p>These Terms constitute a legally binding agreement between you and NOC. We reserve the right to update or modify these Terms at any time without prior notice. Your continued use of the App after any changes constitutes acceptance of the revised Terms.</p>
+        </section>
 
-      <h3>2. Eligibility</h3>
-      <h4>2.1 Age Requirement</h4>
-      <p>You must be at least 13 years of age to use the App. If you are between 13 and 18 years of age (or the age of legal majority in your jurisdiction), you may only use the App under the supervision of a parent or legal guardian who agrees to be bound by these Terms.</p>
-      <h4>2.2 Campus Affiliation</h4>
-      <p>The App is designed for students affiliated with educational institutions. By registering, you represent that you are currently enrolled in or affiliated with the campus you select during registration.</p>
-      <h4>2.3 Account Accuracy</h4>
-      <p>You agree to provide accurate, current, and complete information during registration and to update such information to keep it accurate, current, and complete.</p>
+        <!-- 2 -->
+        <section id="sec2" class="card">
+          <h2>2. Eligibility</h2>
+          <h3>2.1 Age Requirement</h3>
+          <p>You must be at least 13 years of age to use the App. If you are between 13 and 18 years of age (or the age of legal majority in your jurisdiction), you may only use the App under the supervision of a parent or legal guardian who agrees to be bound by these Terms.</p>
+          <h3>2.2 Campus Affiliation</h3>
+          <p>The App is designed for students affiliated with educational institutions. By registering, you represent that you are currently enrolled in or affiliated with the campus you select during registration.</p>
+          <h3>2.3 Account Accuracy</h3>
+          <p>You agree to provide accurate, current, and complete information during registration and to update such information to keep it accurate, current, and complete.</p>
+        </section>
 
-      <h3>3. Account Registration and Security</h3>
-      <h4>3.1 Account Creation</h4>
-      <ul>
-        <li>You must register for an account using a valid email address.</li>
-        <li>You will receive a One-Time Password (OTP) for verification.</li>
-        <li>You must create a secure password for your account.</li>
-        <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
-      </ul>
-      <h4>3.2 Account Responsibility</h4>
-      <ul>
-        <li>You are solely responsible for all activities that occur under your account.</li>
-        <li>You must immediately notify us of any unauthorized use of your account.</li>
-        <li>We are not liable for any loss or damage arising from your failure to maintain account security.</li>
-      </ul>
-      <h4>3.3 One Account Per User</h4>
-      <p>You may only maintain one account. Creating multiple accounts may result in suspension or termination of all accounts.</p>
+        <!-- 3 -->
+        <section id="sec3" class="card">
+          <h2>3. Account Registration and Security</h2>
+          <h3>3.1 Account Creation</h3>
+          <ul>
+            <li>You must register for an account using a valid email address.</li>
+            <li>You will receive a One-Time Password (OTP) for verification.</li>
+            <li>You must create a secure password for your account.</li>
+            <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
+          </ul>
+          <h3>3.2 Account Responsibility</h3>
+          <ul>
+            <li>You are solely responsible for all activities that occur under your account.</li>
+            <li>You must immediately notify us of any unauthorized use of your account.</li>
+            <li>We are not liable for any loss or damage arising from your failure to maintain account security.</li>
+          </ul>
+          <h3>3.3 One Account Per User</h3>
+          <p>You may only maintain one account. Creating multiple accounts may result in suspension or termination of all accounts.</p>
+        </section>
 
-      <h3>4. User Conduct and Content</h3>
-      <h4>4.1 Acceptable Use</h4>
-      <p>You agree to use the App only for lawful purposes and in accordance with these Terms. You agree NOT to:</p>
-      <ul>
-        <li>Violate any applicable local, state, national, or international law.</li>
-        <li>Harass, abuse, threaten, or intimidate other users.</li>
-        <li>Post or transmit any content that is illegal, harmful, threatening, abusive, defamatory, vulgar, obscene, libelous, invasive of another's privacy, hateful, or racially, ethnically, or otherwise objectionable.</li>
-        <li>Impersonate any person or entity or falsely state or misrepresent your affiliation with a person or entity.</li>
-        <li>Post or transmit any unsolicited or unauthorized advertising, promotional materials, spam, or any other form of solicitation.</li>
-        <li>Transmit any viruses, worms, defects, Trojan horses, or any items of a destructive nature.</li>
-        <li>Interfere with or disrupt the App or servers or networks connected to the App.</li>
-        <li>Attempt to gain unauthorized access to any portion of the App or any other systems or networks.</li>
-        <li>Use any automated means (including bots, scrapers, or spiders) to access the App.</li>
-        <li>Collect or store personal data about other users without their express permission.</li>
-      </ul>
-      <h4>4.2 User-Generated Content</h4>
-      <p>The App allows you to create, post, and share content including:</p>
-      <ul>
-        <li>Posts with text and images</li>
-        <li>Comments on posts and events</li>
-        <li>Event creation and management</li>
-        <li>Profile information and images</li>
-        <li>Club-related content</li>
-      </ul>
-      <p>By posting content, you grant NOC a worldwide, non-exclusive, royalty-free, transferable license to use, reproduce, distribute, prepare derivative works of, display, and perform your content in connection with the App and our business operations.</p>
-      <h4>4.3 Content Ownership and Responsibility</h4>
-      <ul>
-        <li>You retain all ownership rights to your content.</li>
-        <li>You are solely responsible for all content you post.</li>
-        <li>You represent and warrant that you own or have the necessary rights to post your content.</li>
-        <li>You represent that your content does not violate any third-party rights, including intellectual property rights.</li>
-      </ul>
-      <h4>4.4 Content Standards</h4>
-      <ul>
-        <li>Must not contain any material which is defamatory, obscene, offensive, hateful, or inflammatory.</li>
-        <li>Must not promote sexually explicit material, violence, or discrimination.</li>
-        <li>Must not infringe any copyright, trademark, or other intellectual property rights.</li>
-        <li>Must not be likely to deceive any person or be used to impersonate any person.</li>
-        <li>Must not promote any illegal activity or commercial activities without our prior written consent.</li>
-        <li>Must be relevant to the campus community.</li>
-      </ul>
+        <!-- 4 -->
+        <section id="sec4" class="card">
+          <h2>4. User Conduct and Content</h2>
+          <h3>4.1 Acceptable Use</h3>
+          <p>You agree to use the App only for lawful purposes and in accordance with these Terms. You agree NOT to:</p>
+          <ul>
+            <li>Violate any applicable local, state, national, or international law.</li>
+            <li>Harass, abuse, threaten, or intimidate other users.</li>
+            <li>Post or transmit any content that is illegal, harmful, threatening, abusive, defamatory, vulgar, obscene, libelous, invasive of another's privacy, hateful, or racially, ethnically, or otherwise objectionable.</li>
+            <li>Impersonate any person or entity or falsely state or misrepresent your affiliation with a person or entity.</li>
+            <li>Post or transmit any unsolicited or unauthorized advertising, promotional materials, spam, or any other form of solicitation.</li>
+            <li>Transmit any viruses, worms, defects, Trojan horses, or any items of a destructive nature.</li>
+            <li>Interfere with or disrupt the App or servers or networks connected to the App.</li>
+            <li>Attempt to gain unauthorized access to any portion of the App or any other systems or networks.</li>
+            <li>Use any automated means (including bots, scrapers, or spiders) to access the App.</li>
+            <li>Collect or store personal data about other users without their express permission.</li>
+          </ul>
+          <h3>4.2 User-Generated Content</h3>
+          <p>The App allows you to create, post, and share content including:</p>
+          <ul>
+            <li>Posts with text and images</li>
+            <li>Comments on posts and events</li>
+            <li>Event creation and management</li>
+            <li>Profile information and images</li>
+            <li>Club-related content</li>
+          </ul>
+          <p>By posting content, you grant NOC a worldwide, non-exclusive, royalty-free, transferable license to use, reproduce, distribute, prepare derivative works of, display, and perform your content in connection with the App and our business operations.</p>
+          <h3>4.3 Content Ownership and Responsibility</h3>
+          <ul>
+            <li>You retain all ownership rights to your content.</li>
+            <li>You are solely responsible for all content you post.</li>
+            <li>You represent and warrant that you own or have the necessary rights to post your content.</li>
+            <li>You represent that your content does not violate any third-party rights, including intellectual property rights.</li>
+          </ul>
+          <h3>4.4 Content Standards</h3>
+          <ul>
+            <li>Must not contain any material which is defamatory, obscene, offensive, hateful, or inflammatory.</li>
+            <li>Must not promote sexually explicit material, violence, or discrimination.</li>
+            <li>Must not infringe any copyright, trademark, or other intellectual property rights.</li>
+            <li>Must not be likely to deceive any person or be used to impersonate any person.</li>
+            <li>Must not promote any illegal activity or commercial activities without our prior written consent.</li>
+            <li>Must be relevant to the campus community.</li>
+          </ul>
+        </section>
 
-      <h3>5. Content Moderation and Reporting</h3>
-      <h4>5.1 Reporting Violations</h4>
-      <p>We provide tools for users to report inappropriate content. You can:</p>
-      <ul>
-        <li>Report posts that violate these Terms.</li>
-        <li>Block posts from appearing in your feed.</li>
-        <li>View and manage your blocked content.</li>
-      </ul>
-      <h4>5.2 Our Right to Remove Content</h4>
-      <p>We reserve the right, but are not obligated, to:</p>
-      <ul>
-        <li>Monitor, review, and moderate user content.</li>
-        <li>Remove or disable access to any content that violates these Terms.</li>
-        <li>Remove content that we deem inappropriate, offensive, or harmful.</li>
-        <li>Take action against users who violate these Terms.</li>
-      </ul>
-      <h4>5.3 No Obligation to Monitor</h4>
-      <p>We are not obligated to monitor user content and assume no responsibility for monitoring the App for inappropriate content or conduct.</p>
+        <!-- 5 -->
+        <section id="sec5" class="card">
+          <h2>5. Content Moderation and Reporting</h2>
+          <h3>5.1 Reporting Violations</h3>
+          <p>We provide tools for users to report inappropriate content. You can:</p>
+          <ul>
+            <li>Report posts that violate these Terms.</li>
+            <li>Block posts from appearing in your feed.</li>
+            <li>View and manage your blocked content.</li>
+          </ul>
+          <h3>5.2 Our Right to Remove Content</h3>
+          <p>We reserve the right, but are not obligated, to:</p>
+          <ul>
+            <li>Monitor, review, and moderate user content.</li>
+            <li>Remove or disable access to any content that violates these Terms.</li>
+            <li>Remove content that we deem inappropriate, offensive, or harmful.</li>
+            <li>Take action against users who violate these Terms.</li>
+          </ul>
+          <h3>5.3 No Obligation to Monitor</h3>
+          <p>We are not obligated to monitor user content and assume no responsibility for monitoring the App for inappropriate content or conduct.</p>
+        </section>
 
-      <h3>6. Club and Event Features</h3>
-      <h4>6.1 Club Leadership</h4>
-      <ul>
-        <li>Certain users may be granted leadership roles (President, Vice President, Treasurer, Club Leader).</li>
-        <li>Club leaders have additional responsibilities including content moderation and membership management.</li>
-        <li>Leadership roles come with the authority to approve or reject join requests.</li>
-        <li>Abuse of leadership privileges may result in removal of leadership status or account termination.</li>
-      </ul>
-      <h4>6.2 Event Management</h4>
-      <ul>
-        <li>Club leaders can create and manage events.</li>
-        <li>Event attendance may require approval from event organizers.</li>
-        <li>Event information may be added to users' device calendars with their permission.</li>
-        <li>Users must obtain necessary permissions before hosting in-person events.</li>
-      </ul>
-      <h4>6.3 Join Requests</h4>
-      <ul>
-        <li>Users may request to join clubs.</li>
-        <li>Club leaders have discretion to approve or reject requests.</li>
-        <li>Decisions should be made fairly and without discrimination.</li>
-      </ul>
+        <!-- 6 -->
+        <section id="sec6" class="card">
+          <h2>6. Club and Event Features</h2>
+          <h3>6.1 Club Leadership</h3>
+          <ul>
+            <li>Certain users may be granted leadership roles (President, Vice President, Treasurer, Club Leader).</li>
+            <li>Club leaders have additional responsibilities including content moderation and membership management.</li>
+            <li>Leadership roles come with the authority to approve or reject join requests.</li>
+            <li>Abuse of leadership privileges may result in removal of leadership status or account termination.</li>
+          </ul>
+          <h3>6.2 Event Management</h3>
+          <ul>
+            <li>Club leaders can create and manage events.</li>
+            <li>Event attendance may require approval from event organizers.</li>
+            <li>Event information may be added to users' device calendars with their permission.</li>
+            <li>Users must obtain necessary permissions before hosting in-person events.</li>
+          </ul>
+          <h3>6.3 Join Requests</h3>
+          <ul>
+            <li>Users may request to join clubs.</li>
+            <li>Club leaders have discretion to approve or reject requests.</li>
+            <li>Decisions should be made fairly and without discrimination.</li>
+          </ul>
+        </section>
 
-      <h3>7. Notifications</h3>
-      <h4>7.1 Push Notifications</h4>
-      <p>By using the App, you consent to receive push notifications regarding:</p>
-      <ul>
-        <li>Activity on your posts and events</li>
-        <li>Club updates and announcements</li>
-        <li>Event reminders</li>
-        <li>System notifications</li>
-      </ul>
-      <h4>7.2 Managing Notifications</h4>
-      <p>You can manage notification preferences through:</p>
-      <ul>
-        <li>App settings (notification toggle)</li>
-        <li>Device operating system settings</li>
-        <li>Disabling notifications will not affect your ability to use core app features.</li>
-      </ul>
+        <!-- 7 -->
+        <section id="sec7" class="card">
+          <h2>7. Notifications</h2>
+          <h3>7.1 Push Notifications</h3>
+          <p>By using the App, you consent to receive push notifications regarding:</p>
+          <ul>
+            <li>Activity on your posts and events</li>
+            <li>Club updates and announcements</li>
+            <li>Event reminders</li>
+            <li>System notifications</li>
+          </ul>
+          <h3>7.2 Managing Notifications</h3>
+          <p>You can manage notification preferences through:</p>
+          <ul>
+            <li>App settings (notification toggle)</li>
+            <li>Device operating system settings</li>
+            <li>Disabling notifications will not affect your ability to use core app features.</li>
+          </ul>
+        </section>
 
-      <h3>8. Privacy and Data Collection</h3>
-      <h4>8.1 Data Collection</h4>
-      <p>Our collection, use, and sharing of your personal information is described in our Privacy Policy, which is incorporated into these Terms by reference.</p>
-      <h4>8.2 User Data</h4>
-      <p>By using the App, you acknowledge and agree that we collect:</p>
-      <ul>
-        <li>Personal information (name, email, gender, date of birth)</li>
-        <li>Academic information (campus, degree, course, batch)</li>
-        <li>Profile images and user-generated content</li>
-        <li>Usage data and activity information</li>
-        <li>Device information and Firebase Cloud Messaging tokens</li>
-      </ul>
+        <!-- 8 -->
+        <section id="sec8" class="card">
+          <h2>8. Privacy and Data Collection</h2>
+          <h3>8.1 Data Collection</h3>
+          <p>Our collection, use, and sharing of your personal information is described in our Privacy Policy, which is incorporated into these Terms by reference.</p>
+          <h3>8.2 User Data</h3>
+          <p>By using the App, you acknowledge and agree that we collect:</p>
+          <ul>
+            <li>Personal information (name, email, gender, date of birth)</li>
+            <li>Academic information (campus, degree, course, batch)</li>
+            <li>Profile images and user-generated content</li>
+            <li>Usage data and activity information</li>
+            <li>Device information and Firebase Cloud Messaging tokens</li>
+          </ul>
+        </section>
 
-      <h3>9. Intellectual Property Rights</h3>
-      <h4>9.1 App Ownership</h4>
-      <p>The App, including all content, features, functionality, software, and design, is owned by NOC and is protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.</p>
-      <h4>9.2 Limited License</h4>
-      <p>We grant you a limited, non-exclusive, non-transferable, revocable license to access and use the App for personal, non-commercial purposes, subject to these Terms.</p>
-      <h4>9.3 Restrictions</h4>
-      <ul>
-        <li>Copy, modify, or create derivative works of the App.</li>
-        <li>Reverse engineer, decompile, or disassemble the App.</li>
-        <li>Remove or alter any copyright, trademark, or other proprietary notices.</li>
-        <li>Use the App for any commercial purpose without our written permission.</li>
-        <li>Frame or mirror any part of the App without our prior written authorization.</li>
-      </ul>
-      <h4>9.4 Trademarks</h4>
-      <p>NOC name, logo, and all related names, logos, product and service names, designs, and slogans are trademarks of NOC. You may not use such marks without our prior written permission.</p>
+        <!-- 9 -->
+        <section id="sec9" class="card">
+          <h2>9. Intellectual Property Rights</h2>
+          <h3>9.1 App Ownership</h3>
+          <p>The App, including all content, features, functionality, software, and design, is owned by NOC and is protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.</p>
+          <h3>9.2 Limited License</h3>
+          <p>We grant you a limited, non-exclusive, non-transferable, revocable license to access and use the App for personal, non-commercial purposes, subject to these Terms.</p>
+          <h3>9.3 Restrictions</h3>
+          <ul>
+            <li>Copy, modify, or create derivative works of the App.</li>
+            <li>Reverse engineer, decompile, or disassemble the App.</li>
+            <li>Remove or alter any copyright, trademark, or other proprietary notices.</li>
+            <li>Use the App for any commercial purpose without our written permission.</li>
+            <li>Frame or mirror any part of the App without our prior written authorization.</li>
+          </ul>
+          <h3>9.4 Trademarks</h3>
+          <p>NOC name, logo, and all related names, logos, product and service names, designs, and slogans are trademarks of NOC. You may not use such marks without our prior written permission.</p>
+        </section>
 
-      <h3>10. Third-Party Services</h3>
-      <h4>10.1 Firebase Services</h4>
-      <p>The App uses Firebase Cloud Messaging for push notifications. Your use of Firebase services is subject to Google's Terms of Service and Privacy Policy.</p>
-      <h4>10.2 Third-Party Components</h4>
-      <p>The App incorporates various open-source and third-party components. Use of these components is subject to their respective licenses.</p>
-      <h4>10.3 Calendar Integration</h4>
-      <p>The App may integrate with your device calendar. By using calendar features, you grant permission to add events to your calendar.</p>
-      <h4>10.4 No Endorsement</h4>
-      <p>We do not endorse or assume responsibility for any third-party services, applications, or content.</p>
+        <!-- 10 -->
+        <section id="sec10" class="card">
+          <h2>10. Third-Party Services</h2>
+          <h3>10.1 Firebase Services</h3>
+          <p>The App uses Firebase Cloud Messaging for push notifications. Your use of Firebase services is subject to Google's Terms of Service and Privacy Policy.</p>
+          <h3>10.2 Third-Party Components</h3>
+          <p>The App incorporates various open-source and third-party components. Use of these components is subject to their respective licenses.</p>
+          <h3>10.3 Calendar Integration</h3>
+          <p>The App may integrate with your device calendar. By using calendar features, you grant permission to add events to your calendar.</p>
+          <h3>10.4 No Endorsement</h3>
+          <p>We do not endorse or assume responsibility for any third-party services, applications, or content.</p>
+        </section>
 
-      <h3>11. Disclaimer of Warranties</h3>
-      <p>THE APP IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, including but not limited to:</p>
-      <ul>
-        <li>WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</li>
-        <li>WARRANTIES THAT THE APP WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE.</li>
-        <li>WARRANTIES REGARDING THE ACCURACY, RELIABILITY, OR COMPLETENESS OF CONTENT.</li>
-      </ul>
-      <p>YOUR USE OF THE APP IS AT YOUR SOLE RISK. We do not warrant that:</p>
-      <ul>
-        <li>The App will meet your requirements.</li>
-        <li>The App will be available at any particular time or location.</li>
-        <li>Any defects or errors will be corrected.</li>
-        <li>The App is free of viruses or other harmful components.</li>
-      </ul>
-      <p>SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO SOME OF THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU.</p>
+        <!-- 11 -->
+        <section id="sec11" class="card">
+          <h2>11. Disclaimer of Warranties</h2>
+          <p>THE APP IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, including but not limited to:</p>
+          <ul>
+            <li>WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</li>
+            <li>WARRANTIES THAT THE APP WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE.</li>
+            <li>WARRANTIES REGARDING THE ACCURACY, RELIABILITY, OR COMPLETENESS OF CONTENT.</li>
+          </ul>
+          <p>YOUR USE OF THE APP IS AT YOUR SOLE RISK. We do not warrant that:</p>
+          <ul>
+            <li>The App will meet your requirements.</li>
+            <li>The App will be available at any particular time or location.</li>
+            <li>Any defects or errors will be corrected.</li>
+            <li>The App is free of viruses or other harmful components.</li>
+          </ul>
+          <p>SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO SOME OF THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU.</p>
+        </section>
 
-      <h3>12. Limitation of Liability</h3>
-      <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, NOC SHALL NOT BE LIABLE FOR:</p>
-      <h4>12.1 Indirect Damages</h4>
-      <p>ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, including but not limited to:</p>
-      <ul>
-        <li>Loss of profits, data, use, goodwill, or other intangible losses.</li>
-        <li>Damages resulting from your access to or inability to access the App.</li>
-        <li>Damages resulting from any conduct or content of any third party on the App.</li>
-        <li>Unauthorized access, use, or alteration of your transmissions or content.</li>
-      </ul>
-      <h4>12.2 Direct Damages</h4>
-      <p>IN NO EVENT SHALL OUR TOTAL LIABILITY TO YOU FOR ALL DAMAGES, LOSSES, AND CAUSES OF ACTION EXCEED THE AMOUNT YOU HAVE PAID US IN THE LAST SIX (6) MONTHS, OR ONE HUNDRED DOLLARS ($100), WHICHEVER IS GREATER.</p>
-      <h4>12.3 Basis of the Bargain</h4>
-      <p>THE LIMITATIONS OF THIS SECTION SHALL APPLY TO ANY THEORY OF LIABILITY, WHETHER BASED ON WARRANTY, CONTRACT, STATUTE, TORT, OR OTHERWISE, AND WHETHER OR NOT WE HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGE, AND EVEN IF A REMEDY SET FORTH HEREIN IS FOUND TO HAVE FAILED OF ITS ESSENTIAL PURPOSE.</p>
+        <!-- 12 -->
+        <section id="sec12" class="card">
+          <h2>12. Limitation of Liability</h2>
+          <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, NOC SHALL NOT BE LIABLE FOR:</p>
+          <h3>12.1 Indirect Damages</h3>
+          <p>ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, including but not limited to:</p>
+          <ul>
+            <li>Loss of profits, data, use, goodwill, or other intangible losses.</li>
+            <li>Damages resulting from your access to or inability to access the App.</li>
+            <li>Damages resulting from any conduct or content of any third party on the App.</li>
+            <li>Unauthorized access, use, or alteration of your transmissions or content.</li>
+          </ul>
+          <h3>12.2 Direct Damages</h3>
+          <p>IN NO EVENT SHALL OUR TOTAL LIABILITY TO YOU FOR ALL DAMAGES, LOSSES, AND CAUSES OF ACTION EXCEED THE AMOUNT YOU HAVE PAID US IN THE LAST SIX (6) MONTHS, OR ONE HUNDRED DOLLARS ($100), WHICHEVER IS GREATER.</p>
+          <h3>12.3 Basis of the Bargain</h3>
+          <p>THE LIMITATIONS OF THIS SECTION SHALL APPLY TO ANY THEORY OF LIABILITY, WHETHER BASED ON WARRANTY, CONTRACT, STATUTE, TORT, OR OTHERWISE, AND WHETHER OR NOT WE HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGE, AND EVEN IF A REMEDY SET FORTH HEREIN IS FOUND TO HAVE FAILED OF ITS ESSENTIAL PURPOSE.</p>
+        </section>
 
-      <h3>13. Indemnification</h3>
-      <p>You agree to defend, indemnify, and hold harmless NOC, its officers, directors, employees, agents, licensors, and suppliers from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to:</p>
-      <ul>
-        <li>Your violation of these Terms.</li>
-        <li>Your violation of any rights of another party.</li>
-        <li>Your violation of any applicable laws or regulations.</li>
-        <li>Your content or any content posted using your account.</li>
-        <li>Your use or misuse of the App.</li>
-        <li>Your breach of any representations or warranties contained in these Terms.</li>
-      </ul>
+        <!-- 13 -->
+        <section id="sec13" class="card">
+          <h2>13. Indemnification</h2>
+          <p>You agree to defend, indemnify, and hold harmless NOC, its officers, directors, employees, agents, licensors, and suppliers from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to:</p>
+          <ul>
+            <li>Your violation of these Terms.</li>
+            <li>Your violation of any rights of another party.</li>
+            <li>Your violation of any applicable laws or regulations.</li>
+            <li>Your content or any content posted using your account.</li>
+            <li>Your use or misuse of the App.</li>
+            <li>Your breach of any representations or warranties contained in these Terms.</li>
+          </ul>
+        </section>
 
-      <h3>14. Account Termination</h3>
-      <h4>14.1 Termination by You</h4>
-      <p>You may delete your account at any time through the App settings. Account deletion will result in:</p>
-      <ul>
-        <li>Removal of your profile information.</li>
-        <li>Deletion of your personal data (subject to our data retention policies).</li>
-        <li>Loss of access to all App features.</li>
-      </ul>
-      <h4>14.2 Termination by Us</h4>
-      <p>We reserve the right to suspend or terminate your account and access to the App, without notice, for:</p>
-      <ul>
-        <li>Violation of these Terms.</li>
-        <li>Fraudulent, abusive, or illegal activity.</li>
-        <li>Extended periods of inactivity.</li>
-        <li>Any other reason at our sole discretion.</li>
-      </ul>
-      <h4>14.3 Effect of Termination</h4>
-      <ul>
-        <li>Your right to use the App will immediately cease.</li>
-        <li>We may delete your account and all associated data.</li>
-        <li>You remain liable for all obligations incurred prior to termination.</li>
-        <li>Sections that by their nature should survive termination shall survive.</li>
-      </ul>
-      <h4>14.4 Content After Termination</h4>
-      <p>Content you have posted may remain visible to other users even after account deletion, particularly if it has been shared, commented on, or is part of public discussions. We will make reasonable efforts to remove your identifiable information.</p>
+        <!-- 14 -->
+        <section id="sec14" class="card">
+          <h2>14. Account Termination</h2>
+          <h3>14.1 Termination by You</h3>
+          <ul>
+            <li>You may delete your account at any time through the App settings.</li>
+            <li>Removal of your profile information.</li>
+            <li>Deletion of your personal data (subject to our data retention policies).</li>
+            <li>Loss of access to all App features.</li>
+          </ul>
+          <h3>14.2 Termination by Us</h3>
+          <ul>
+            <li>We reserve the right to suspend or terminate your account and access to the App, without notice, for violations, fraudulent/abusive/illegal activity, extended inactivity, or other reasons at our sole discretion.</li>
+          </ul>
+          <h3>14.3 Effect of Termination</h3>
+          <ul>
+            <li>Your right to use the App will immediately cease.</li>
+            <li>We may delete your account and all associated data.</li>
+            <li>You remain liable for all obligations incurred prior to termination.</li>
+            <li>Sections that by their nature should survive termination shall survive.</li>
+          </ul>
+          <h3>14.4 Content After Termination</h3>
+          <p>Content you have posted may remain visible to other users even after account deletion; we will make reasonable efforts to remove your identifiable information.</p>
+        </section>
 
-      <h3>15. Geographic Restrictions</h3>
-      <p>The App is controlled and operated from our facilities. We make no representations that the App is appropriate or available for use in all locations. Access to the App from territories where its contents are illegal or restricted is prohibited.</p>
+        <!-- 15 -->
+        <section id="sec15" class="card">
+          <h2>15. Geographic Restrictions</h2>
+          <p>The App is controlled and operated from our facilities. We make no representations that the App is appropriate or available for use in all locations. Access to the App from territories where its contents are illegal or restricted is prohibited.</p>
+        </section>
 
-      <h3>16. Governing Law and Dispute Resolution</h3>
-      <h4>16.1 Governing Law</h4>
-      <p>These Terms shall be governed by and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law provisions.</p>
-      <h4>16.2 Dispute Resolution</h4>
-      <p>Any dispute arising out of or relating to these Terms or the App shall be resolved through:</p>
-      <ol>
-        <li>Good faith negotiation between the parties.</li>
-        <li>If negotiation fails, binding arbitration in accordance with the rules of [Arbitration Body].</li>
-        <li>The arbitration shall be conducted in [Location].</li>
-      </ol>
-      <h4>16.3 Class Action Waiver</h4>
-      <p>YOU AGREE THAT ANY PROCEEDINGS TO RESOLVE DISPUTES WILL BE CONDUCTED ON AN INDIVIDUAL BASIS AND NOT IN A CLASS, CONSOLIDATED, OR REPRESENTATIVE ACTION.</p>
-      <h4>16.4 Exceptions</h4>
-      <p>Notwithstanding the above, we may seek injunctive or other equitable relief in any court of competent jurisdiction to protect our intellectual property rights.</p>
+        <!-- 16 -->
+        <section class="card">
+          <h2>16. Governing Law and Dispute Resolution</h2>
+          <h3>16.1 Governing Law</h3>
+          <p>These Terms shall be governed by and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law provisions.</p>
+          <h3>16.2 Dispute Resolution</h3>
+          <ol>
+            <li>Good faith negotiation between the parties.</li>
+            <li>If negotiation fails, binding arbitration in accordance with the rules of [Arbitration Body].</li>
+            <li>The arbitration shall be conducted in [Location].</li>
+          </ol>
+          <h3>16.3 Class Action Waiver</h3>
+          <p>YOU AGREE THAT ANY PROCEEDINGS TO RESOLVE DISPUTES WILL BE CONDUCTED ON AN INDIVIDUAL BASIS AND NOT IN A CLASS, CONSOLIDATED, OR REPRESENTATIVE ACTION.</p>
+          <h3>16.4 Exceptions</h3>
+          <p>We may seek injunctive or other equitable relief in any court of competent jurisdiction to protect our intellectual property rights.</p>
+        </section>
 
-      <h3>17. Apple App Store Terms (iOS Users)</h3>
-      <h4>17.1 Acknowledgment</h4>
-      <ul>
-        <li>These Terms are between you and NOC, not Apple.</li>
-        <li>Apple has no obligation to provide maintenance or support for the App.</li>
-        <li>Apple is not responsible for addressing any claims relating to the App.</li>
-        <li>Apple is not responsible for investigating, defending, settling, or discharging any third-party claim that the App infringes intellectual property rights.</li>
-        <li>Apple and its subsidiaries are third-party beneficiaries of these Terms.</li>
-        <li>Upon your acceptance of these Terms, Apple has the right to enforce these Terms against you.</li>
-      </ul>
-      <h4>17.2 Usage Rules</h4>
-      <p>Your use of the App must comply with the App Store Terms of Service and the Usage Rules set forth in the Apple Media Services Terms and Conditions.</p>
-      <h4>17.3 Minimum Requirements</h4>
-      <p>The App requires a compatible iOS device and may require minimum software versions to function properly.</p>
+        <!-- 17–18 -->
+        <section id="sec17" class="card">
+          <h2>17. Apple App Store Terms (iOS Users)</h2>
+          <h3>17.1 Acknowledgment</h3>
+          <ul>
+            <li>These Terms are between you and NOC, not Apple.</li>
+            <li>Apple has no obligation to provide maintenance or support for the App.</li>
+            <li>Apple is not responsible for addressing any claims relating to the App.</li>
+            <li>Apple is not responsible for investigating, defending, settling, or discharging any third-party claim that the App infringes intellectual property rights.</li>
+            <li>Apple and its subsidiaries are third-party beneficiaries of these Terms and may enforce them.</li>
+          </ul>
+          <h3>17.2 Usage Rules</h3>
+          <p>Your use of the App must comply with the App Store Terms of Service and the Usage Rules set forth in the Apple Media Services Terms and Conditions.</p>
+          <h3>17.3 Minimum Requirements</h3>
+          <p>The App requires a compatible iOS device and may require minimum software versions to function properly.</p>
 
-      <h3>18. Google Play Store Terms (Android Users)</h3>
-      <h4>18.1 Acknowledgment</h4>
-      <ul>
-        <li>These Terms are between you and NOC, not Google.</li>
-        <li>Google has no obligation or liability to you with respect to the App.</li>
-        <li>Your use of the App must comply with Google Play's Terms of Service.</li>
-      </ul>
-      <h4>18.2 Google Play Policies</h4>
-      <p>The App complies with Google Play Developer Program Policies, including but not limited to:</p>
-      <ul>
-        <li>User Data policies regarding data collection and usage.</li>
-        <li>Device and Network Abuse policies.</li>
-        <li>Malicious Behavior policies.</li>
-        <li>Content policies.</li>
-      </ul>
+          <h2>18. Google Play Store Terms (Android Users)</h2>
+          <h3>18.1 Acknowledgment</h3>
+          <ul>
+            <li>These Terms are between you and NOC, not Google.</li>
+            <li>Google has no obligation or liability to you with respect to the App.</li>
+            <li>Your use of the App must comply with Google Play's Terms of Service.</li>
+          </ul>
+          <h3>18.2 Google Play Policies</h3>
+          <ul>
+            <li>User Data policies regarding data collection and usage.</li>
+            <li>Device and Network Abuse policies.</li>
+            <li>Malicious Behavior policies.</li>
+            <li>Content policies.</li>
+          </ul>
+        </section>
 
-      <h3>19. Device Permissions</h3>
-      <h4>19.1 Required Permissions</h4>
-      <ul>
-        <li>Internet Access: To communicate with our servers and provide core functionality.</li>
-        <li>Network State: To detect connectivity and optimize performance.</li>
-        <li>Camera: To capture photos for profile pictures, posts, and events.</li>
-        <li>Photo Library: To select existing images for upload.</li>
-        <li>Notifications: To send push notifications about app activity.</li>
-        <li>Calendar: To add events to your device calendar (with your consent).</li>
-      </ul>
-      <h4>19.2 Permission Management</h4>
-      <p>You can manage permissions through your device settings. Denying certain permissions may limit app functionality.</p>
+        <!-- 19 -->
+        <section id="sec19" class="card">
+          <h2>19. Device Permissions</h2>
+          <h3>19.1 Required Permissions</h3>
+          <ul>
+            <li>Internet Access</li>
+            <li>Network State</li>
+            <li>Camera</li>
+            <li>Photo Library</li>
+            <li>Notifications</li>
+            <li>Calendar (with your consent)</li>
+          </ul>
+          <h3>19.2 Permission Management</h3>
+          <p>You can manage permissions through your device settings. Denying certain permissions may limit app functionality.</p>
+        </section>
 
-      <h3>20. Updates and Modifications</h3>
-      <h4>20.1 App Updates</h4>
-      <p>We may release updates to the App from time to time. Updates may include new features, bug fixes, or security enhancements. You are responsible for updating the App to continue using it.</p>
-      <h4>20.2 Terms Updates</h4>
-      <p>We reserve the right to update these Terms at any time. We will notify you of material changes by:</p>
-      <ul>
-        <li>Posting the new Terms in the App.</li>
-        <li>Updating the "Last Updated" date.</li>
-        <li>Sending you a notification (if required by law).</li>
-      </ul>
-      <p>Your continued use of the App after changes constitutes acceptance of the updated Terms.</p>
+        <!-- 20–25 -->
+        <section id="sec20" class="card">
+          <h2>20. Updates and Modifications</h2>
+          <h3>20.1 App Updates</h3>
+          <p>We may release updates to the App from time to time. Updates may include new features, bug fixes, or security enhancements. You are responsible for updating the App to continue using it.</p>
+          <h3>20.2 Terms Updates</h3>
+          <p>We reserve the right to update these Terms at any time. We will notify you of material changes by posting the new Terms, updating the "Last Updated" date, and sending a notification if required by law. Continued use constitutes acceptance.</p>
 
-      <h3>21. Severability</h3>
-      <p>If any provision of these Terms is held to be invalid, illegal, or unenforceable, the validity, legality, and enforceability of the remaining provisions shall not be affected or impaired.</p>
+          <h2>21. Severability</h2>
+          <p>If any provision of these Terms is held to be invalid, illegal, or unenforceable, the validity, legality, and enforceability of the remaining provisions shall not be affected or impaired.</p>
 
-      <h3>22. Waiver</h3>
-      <p>No waiver of any term of these Terms shall be deemed a further or continuing waiver of such term or any other term. Our failure to assert any right or provision under these Terms shall not constitute a waiver of such right or provision.</p>
+          <h2>22. Waiver</h2>
+          <p>No waiver of any term of these Terms shall be deemed a further or continuing waiver of such term or any other term. Our failure to assert any right or provision shall not constitute a waiver.</p>
 
-      <h3>23. Entire Agreement</h3>
-      <p>These Terms, together with our Privacy Policy and any other legal notices or agreements published by us in the App, constitute the entire agreement between you and NOC regarding the App and supersede all prior agreements and understandings.</p>
+          <h2>23. Entire Agreement</h2>
+          <p>These Terms, together with our Privacy Policy and any other legal notices or agreements published by us in the App, constitute the entire agreement between you and NOC regarding the App and supersede all prior agreements.</p>
 
-      <h3>24. Assignment</h3>
-      <p>You may not assign or transfer these Terms or your rights and obligations under these Terms without our prior written consent. We may assign these Terms without restriction.</p>
+          <h2>24. Assignment</h2>
+          <p>You may not assign or transfer these Terms or your rights and obligations under these Terms without our prior written consent. We may assign these Terms without restriction.</p>
 
-      <h3>25. Force Majeure</h3>
-      <p>We shall not be liable for any failure or delay in performance due to circumstances beyond our reasonable control, including but not limited to acts of God, war, terrorism, riots, embargoes, acts of civil or military authorities, fire, floods, accidents, pandemics, strikes, or shortages of transportation, facilities, fuel, energy, labor, or materials.</p>
+          <h2>25. Force Majeure</h2>
+          <p>We shall not be liable for any failure or delay in performance due to circumstances beyond our reasonable control, including but not limited to acts of God, war, terrorism, riots, embargoes, acts of civil or military authorities, fire, floods, accidents, pandemics, strikes, or shortages of transportation, facilities, fuel, energy, labor, or materials.</p>
+        </section>
 
-      <h3>26. Contact Information</h3>
-      <p>If you have any questions, concerns, or complaints regarding these Terms or the App, please contact us at:</p>
-      <p>Email: noculant@gmail.com &nbsp;&nbsp; Support: Available through in-app support</p>
+        <!-- 26–30 -->
+        <section id="sec26" class="card">
+          <h2>26. Contact Information</h2>
+          <p>If you have any questions, concerns, or complaints regarding these Terms or the App, please contact us:</p>
+          <p>Email: [Your Contact Email] &nbsp;&nbsp; Address: [Your Company Address] &nbsp;&nbsp; Support: Available through in-app support</p>
 
-      <h3>27. Educational Purpose Disclaimer</h3>
-      <h4>27.1 Institutional Independence</h4>
-      <p>NOC is an independent platform and is not officially endorsed, sponsored, or administered by any educational institution, college, or university mentioned in the App.</p>
-      <h4>27.2 Event Liability</h4>
-      <p>Events organized through the App are created by users and club leaders. NOC is not responsible for:</p>
-      <ul>
-        <li>The safety, legality, or appropriateness of events.</li>
-        <li>Any injuries, damages, or losses incurred at events.</li>
-        <li>Ensuring compliance with institutional policies.</li>
-      </ul>
-      <p>Users attending events do so at their own risk.</p>
+          <h2>27. Educational Purpose Disclaimer</h2>
+          <h3>27.1 Institutional Independence</h3>
+          <p>NOC is an independent platform and is not officially endorsed, sponsored, or administered by any educational institution, college, or university mentioned in the App.</p>
+          <h3>27.2 Event Liability</h3>
+          <p>Events organized through the App are created by users and club leaders. NOC is not responsible for:</p>
+          <ul>
+            <li>The safety, legality, or appropriateness of events.</li>
+            <li>Any injuries, damages, or losses incurred at events.</li>
+            <li>Ensuring compliance with institutional policies.</li>
+          </ul>
+          <p>Users attending events do so at their own risk.</p>
 
-      <h3>28. User Disputes</h3>
-      <p>We are not responsible for disputes between users. If you have a dispute with another user, you release NOC from any claims, demands, and damages of every kind arising out of or in any way connected with such disputes.</p>
+          <h2>28. User Disputes</h2>
+          <p>We are not responsible for disputes between users. If you have a dispute with another user, you release NOC from any claims, demands, and damages of every kind arising out of or in any way connected with such disputes.</p>
 
-      <h3>29. California Residents</h3>
-      <p>If you are a California resident, you may have these Terms mailed to you electronically by sending a letter to the address listed in the Contact Information section with your electronic mail address and a request for these Terms.</p>
-      <p>Under California Civil Code Section 1789.3, California users are entitled to the following consumer rights notice: The Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs may be contacted in writing at 1625 North Market Blvd., Suite N 112, Sacramento, CA 95834, or by telephone at (916) 445-1254 or (800) 952-5210.</p>
+          <h2>29. California Residents</h2>
+          <p>If you are a California resident, you may have these Terms mailed to you electronically by sending a letter to the address listed in the Contact Information section with your electronic mail address and a request for these Terms.</p>
+          <p>Under California Civil Code Section 1789.3, California users are entitled to the following consumer rights notice: The Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs may be contacted in writing at 1625 North Market Blvd., Suite N 112, Sacramento, CA 95834, or by telephone at (916) 445-1254 or (800) 952-5210.</p>
 
-      <h3>30. Children's Privacy</h3>
-      <p>We do not knowingly collect personal information from children under 13 without parental consent. If you believe we have inadvertently collected information from a child under 13, please contact us immediately so we can delete such information.</p>
+          <h2>30. Children's Privacy</h2>
+          <p>We do not knowingly collect personal information from children under 13 without parental consent. If you believe we have inadvertently collected information from a child under 13, please contact us immediately so we can delete such information.</p>
 
-      <p><strong>BY USING THE NOC APP, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD, AND AGREE TO BE BOUND BY THESE TERMS OF SERVICE.</strong></p>
-      <p>For questions or concerns, please contact us at [Your Contact Email]</p>
+          <p><strong>BY USING THE NOC APP, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD, AND AGREE TO BE BOUND BY THESE TERMS OF SERVICE.</strong></p>
+        </section>
 
-      <hr class="my-8"/>
-
-      <details class="bg-gray-50 p-4 rounded-lg">
-        <summary class="font-semibold cursor-pointer">Table of Contents (from source)</summary>
-        <ul class="mt-3">
-          <li>Terms of Service</li>
-          <li>1. Acceptance of Terms</li>
-          <li>2. Eligibility (2.1 Age Requirement, 2.2 Campus Affiliation, 2.3 Account Accuracy)</li>
-          <li>3. Account Registration and Security (3.1 Account Creation, 3.2 Account Responsibility, 3.3 One Account Per User)</li>
-          <li>4. User Conduct and Content (4.1 Acceptable Use, 4.2 User-Generated Content, 4.3 Content Ownership and Responsibility, 4.4 Content Standards)</li>
-          <li>5. Content Moderation and Reporting (5.1 Reporting Violations, 5.2 Our Right to Remove Content, 5.3 No Obligation to Monitor)</li>
-          <li>6. Club and Event Features (6.1 Club Leadership, 6.2 Event Management, 6.3 Join Requests)</li>
-          <li>7. Notifications (7.1 Push Notifications, 7.2 Managing Notifications)</li>
-          <li>8. Privacy and Data Collection (8.1 Data Collection, 8.2 User Data)</li>
-          <li>9. Intellectual Property Rights (9.1 App Ownership, 9.2 Limited License, 9.3 Restrictions, 9.4 Trademarks)</li>
-          <li>10. Third-Party Services (10.1 Firebase Services, 10.2 Third-Party Components, 10.3 Calendar Integration, 10.4 No Endorsement)</li>
-          <li>11. Disclaimer of Warranties</li>
-          <li>12. Limitation of Liability (12.1 Indirect Damages, 12.2 Direct Damages, 12.3 Basis of the Bargain)</li>
-          <li>13. Indemnification</li>
-          <li>14. Account Termination (14.1 Termination by You, 14.2 Termination by Us, 14.3 Effect of Termination, 14.4 Content After Termination)</li>
-          <li>15. Geographic Restrictions</li>
-          <li>16. Governing Law and Dispute Resolution (16.1 Governing Law, 16.2 Dispute Resolution, 16.3 Class Action Waiver, 16.4 Exceptions)</li>
-          <li>17. Apple App Store Terms (iOS Users) (17.1 Acknowledgment, 17.2 Usage Rules, 17.3 Minimum Requirements)</li>
-          <li>18. Google Play Store Terms (Android Users) (18.1 Acknowledgment, 18.2 Google Play Policies)</li>
-          <li>19. Device Permissions (19.1 Required Permissions, 19.2 Permission Management)</li>
-          <li>20. Updates and Modifications (20.1 App Updates, 20.2 Terms Updates)</li>
-          <li>21. Severability</li>
-          <li>22. Waiver</li>
-          <li>23. Entire Agreement</li>
-          <li>24. Assignment</li>
-          <li>25. Force Majeure</li>
-          <li>26. Contact Information</li>
-          <li>27. Educational Purpose Disclaimer (27.1 Institutional Independence, 27.2 Event Liability)</li>
-          <li>28. User Disputes</li>
-          <li>29. California Residents</li>
-          <li>30. Children's Privacy</li>
-        </ul>
-      </details>
-    </article>
-
-    <!-- Back link -->
-    <div class="mt-10">
-      <a href="/" class="inline-block px-4 py-2 rounded-xl bg-blue-500 text-white hover:bg-blue-600">← Back to Home</a>
+        <!-- Source TOC -->
+        <section id="toc" class="card">
+          <details>
+            <summary>Table of Contents (from source)</summary>
+            <ul>
+              <li>Terms of Service</li>
+              <li>1. Acceptance of Terms</li>
+              <li>2. Eligibility (2.1 Age Requirement, 2.2 Campus Affiliation, 2.3 Account Accuracy)</li>
+              <li>3. Account Registration and Security (3.1 Account Creation, 3.2 Account Responsibility, 3.3 One Account Per User)</li>
+              <li>4. User Conduct and Content (4.1 Acceptable Use, 4.2 User-Generated Content, 4.3 Content Ownership and Responsibility, 4.4 Content Standards)</li>
+              <li>5. Content Moderation and Reporting (5.1 Reporting Violations, 5.2 Our Right to Remove Content, 5.3 No Obligation to Monitor)</li>
+              <li>6. Club and Event Features (6.1 Club Leadership, 6.2 Event Management, 6.3 Join Requests)</li>
+              <li>7. Notifications (7.1 Push Notifications, 7.2 Managing Notifications)</li>
+              <li>8. Privacy and Data Collection (8.1 Data Collection, 8.2 User Data)</li>
+              <li>9. Intellectual Property Rights (9.1 App Ownership, 9.2 Limited License, 9.3 Restrictions, 9.4 Trademarks)</li>
+              <li>10. Third-Party Services (10.1 Firebase Services, 10.2 Third-Party Components, 10.3 Calendar Integration, 10.4 No Endorsement)</li>
+              <li>11. Disclaimer of Warranties</li>
+              <li>12. Limitation of Liability (12.1 Indirect Damages, 12.2 Direct Damages, 12.3 Basis of the Bargain)</li>
+              <li>13. Indemnification</li>
+              <li>14. Account Termination (14.1 Termination by You, 14.2 Termination by Us, 14.3 Effect of Termination, 14.4 Content After Termination)</li>
+              <li>15. Geographic Restrictions</li>
+              <li>16. Governing Law and Dispute Resolution (16.1 Governing Law, 16.2 Dispute Resolution, 16.3 Class Action Waiver, 16.4 Exceptions)</li>
+              <li>17. Apple App Store Terms (iOS Users) (17.1 Acknowledgment, 17.2 Usage Rules, 17.3 Minimum Requirements)</li>
+              <li>18. Google Play Store Terms (Android Users) (18.1 Acknowledgment, 18.2 Google Play Policies)</li>
+              <li>19. Device Permissions (19.1 Required Permissions, 19.2 Permission Management)</li>
+              <li>20. Updates and Modifications (20.1 App Updates, 20.2 Terms Updates)</li>
+              <li>21. Severability</li>
+              <li>22. Waiver</li>
+              <li>23. Entire Agreement</li>
+              <li>24. Assignment</li>
+              <li>25. Force Majeure</li>
+              <li>26. Contact Information</li>
+              <li>27. Educational Purpose Disclaimer (27.1 Institutional Independence, 27.2 Event Liability)</li>
+              <li>28. User Disputes</li>
+              <li>29. California Residents</li>
+              <li>30. Children's Privacy</li>
+            </ul>
+          </details>
+        </section>
+      </article>
     </div>
   </main>
 
